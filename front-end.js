@@ -26,3 +26,24 @@ send.addEventListener("click", () => {
     form.reset()
 })
 
+
+// Change language
+
+const langSwitch = document.getElementById('langSwitch');
+
+const currentPage = window.location.pathname;
+const isEnglish = currentPage.includes("index.html"); 
+
+// Set text en or it Imposta il testo del pulsante in base alla lingua attuale
+langSwitch.textContent = isEnglish ? "ENG" : "ITA";
+
+
+langSwitch.addEventListener("click", () => {
+    if (isEnglish) {
+        // IT version
+        window.location.href = "index_it.html";
+    } else {
+        // EN version
+        window.location.href = "index.html";
+    }
+});
