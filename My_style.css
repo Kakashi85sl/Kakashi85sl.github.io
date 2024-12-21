@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: monospace;
     font-size: 1.3rem;
@@ -11,7 +15,9 @@ li,
 a {
     text-decoration: none;
     list-style: none;
-
+}
+.navDesktop a:hover {
+    color: white;
 }
 
 
@@ -97,11 +103,22 @@ header .containerNav li {
 a {
     padding: 25px 0;
     font-size: 2rem;
+    transition: 0.6s ease-in-out;
     color: rgb(238, 0, 158);
 }
 
 .menuBurger {
     color: rgb(238, 0, 158);
+    transition: 0.6s ease-in-out;
+}
+.menuBurger:hover{
+    color: rgb(255, 51, 187);
+    font-size: 1rem;
+}
+
+.off-screen a:hover {
+    color: white;
+    transform: rotate(10deg);
 }
 
 .menuBurger i {
@@ -113,50 +130,44 @@ a {
 
 
 /*  Intro Section  */
-
 #Intro {
     background-color: rgb(255, 255, 255);
     height: auto;
     width: 100%;
-    top: 100px;
+    top: 45px;
     position: relative;
-    padding-bottom: 50px;
-    margin-bottom: 100px;
 }
 
-.introContainer {
-    align-items: center;
-    width: 100%;
+.container {
     display: flex;
-    justify-content: space-around;
+    width: 100%;
+    align-items: center;
 }
 
-#Intro h1 {
-    text-align: center;
-    font-size: 2rem;
-    padding-bottom: 50px;
+.text {
+    width: 50%;
+    padding: 50px 20px 0 20px;
+    align-items: center;
 }
 
-.introContainer img {
-    padding: 0 5%;
-    height: 60%;
-    width: 60%;
-    object-fit: cover;
-    border-radius: 30%;
-}
-
-.introContainer p {
-    padding: 30px 50px 0 5%;
+.image {
+    width: 50%;
+    overflow: hidden;
 
 }
 
+.image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 
 /*  About Me Section  */
 #About_Me {
     background-color: rgb(32, 32, 32);
     height: auto;
-    padding: 20px 0 40px 0;
+    padding: 50px 0 40px 0;
     color: white;
     min-height: 500px;
 }
@@ -191,11 +202,10 @@ a {
 } */
 
 
-
-
 #My_Resume .card-body {
     width: 100%;
-    height: 250px;
+    height: auto;
+    padding-bottom: 10px;
 }
 
 .card-title {
@@ -229,14 +239,6 @@ a {
     width: 45%;
 }
 
-.white_space {
-    background-color: rgba(255, 255, 255, 0);
-    height: 10px;
-}
-
-
-
-
 /* Contact section */
 
 #Contact {
@@ -267,19 +269,51 @@ textarea {
     height: 130px;
 }
 
+::placeholder {
+    color: rgba(67, 67, 67, 0.313);
+}
+
 form textarea,
 input,
 button {
     border-radius: 15px;
     border: none;
-    min-width: 300px;
+    width: 400px;
+}
+
+form #submit,
+#resetButton {
+    justify-self: center;
+    width: 50%;
 }
 
 form button {
     color: rgb(238, 0, 158);
     background-color: rgb(255, 255, 255);
+    transition: 0.6s ease-in-out;
+}
+form #resetButton:hover{
+    color: white;
+    background-color:  rgb(79, 3, 210);
+    font-weight: bolder;
+}
+form #submit:hover{
+background-color: rgb(238, 0, 158);
+color: white;
+font-weight: bolder;
+pointer-events:fill;
 }
 
+#resetButton {
+    margin-top: 15px;
+    color: rgb(65, 0, 177);
+    transition: 0.6s ease-in-out;
+}
+.error {
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 10px;
+}
 
 
 /*  Footer section  */
@@ -305,11 +339,6 @@ footer .info {
 }
 
 
-
-
-
-
-
 /* Nav config for smartphone */
 
 @media screen and (min-width:769px) {
@@ -324,18 +353,28 @@ footer .info {
         display: none;
     }
 
+    #Intro {
+        top: 0;
+    }
+
     #Intro h1 {
         font-size: 2rem;
         padding: 1rem;
     }
 
-    footer img {
-        width: 30%;
-    }
 
     .introContainer {
-        display: grid;
-        justify-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #Intro .image {
+        width: 100%;
+       
+    }
+
+    #Intro .text {
+        width: 100%;
     }
 
     .introContainer p {
@@ -356,9 +395,24 @@ footer .info {
         height: auto;
     }
 
+    #Contact form {
+        width: 100%;
+    }
+
+    footer img {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:500px) {
+
     form textarea,
-input,
-button{
-    width: 90%;
+    input,
+    button {
+        border-radius: 15px;
+        border: none;
+        width: 300px;
+    }
 }
-}
+
+

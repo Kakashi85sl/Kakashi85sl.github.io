@@ -21,20 +21,21 @@
 
 <body>
     <header>
-        <!-- <div class="containerNav"> -->
         <nav class="containerNav">
             <div class="logo">
                 <img src="img/logo OD.png" alt="Orpheus Design">
             </div>
-            <ul class="navDesktop">
+            <ul class="navDesktop" data-lang="en">
                 <li><a href="#Intro">Intro</a></li>
                 <li><a href="#About_Me">About Me</a></li>
                 <li><a href="#My_Resume">My Resume</a></li>
                 <li><a href="#Contact">Contact</a></li>
             </ul>
+           
         </nav>
-        <!-- </div> -->
 
+
+        <div class="lang-switch">Cambia Lingua</div>
 
         <div class="navMobile">
             <nav class="menuBurger">
@@ -53,20 +54,27 @@
     </header>
 
     <section id="Intro">
-        <h1>Epicode student and aspiring Web Developer</h1>
-        <div class="introContainer">
-            <img src="img/2.jpg" alt="Luca Santomassimo picture" width="30%">
-            <p><b>Santomassimo Luca</b> <br>
-                <br>
-                <span style="font-size: 2rem; color: rgb(238, 0, 158);">I</span>'m a student of Epicode in <br>
-                "<b><span style="color:rgb(238, 0, 158)"> Computer Engineering & Artificial
-                        Intelligence</span> </b>"
-            </p>
+
+
+        <div class="container">
+            <div class="text">
+                <p data-lang="en"><b style="font-size: 1.5rem;">Santomassimo Luca</b> <br>
+                    <br>
+                    <span style="font-size: 2rem; color: rgb(238, 0, 158);">I</span>'m a student of Epicode in <br>
+                    "<b><span style="color:rgb(238, 0, 158)"> Computer Engineering & Artificial
+                            Intelligence</span> </b>"
+                </p>
+                
+            </div>
+            <div class="image">
+                <img src="img/me.jpg" alt="Descrizione dell'immagine">
+            </div>
         </div>
     </section>
 
 
     <section id="About_Me">
+        <div  class="en">
         <h2>Who am I?</h2>
         <p>My name is Luca Santomassimo and i'm 39 years old. My education starts with an industrial technical institute
             where I chose to graduate as an electrical engineer, and almost immediately I started working in some
@@ -76,15 +84,18 @@
             During this period, given the pandemic that hit us, I was in charge of managing health operations (molecular
             swabs, vaccines, blood draws, etc.) in close
             contact with local ASL, and thanks to these experiences I was able to mature both professional and personal.
-            <br>
+            <br><br>
+            Given my passion for web development and digital graphics, I created my own brand that I called “Orpheus
+            Design”. <br><br>
             During this time, I also earned a bachelor's degree in business economics in 2022<br>
             Here I finally decide to try to change my life and enter the world of tech, my true passion, by enrolling in
             the <span style="color:rgb(238, 0, 158)">Epicode</span> degree
             program.
         </p>
-
-
+    </div>
+   
     </section>
+
 
 
     <section id="My_Resume">
@@ -176,18 +187,23 @@
 
     <section id="Contact">
 
-<h2>Contact me</h2>
+        <h2>Contact me</h2>
 
-        <form action="">
-            <label for="name">Name: </label><input type="text">
+        <form action="" id="Form">
+
+            <label for="name">Name: </label><input placeholder="Insert your name" type="text" id="name" required>
             <br>
-            <label for="email">Email: </label><input type="email">
+            <label for="email">Email: </label><input placeholder="Insert your mail" type="email" id="email" required>
             <br>
-            <label for="phone">Phone Number: </label><input type="phone">
+            <label for="phone">Phone Number: </label><input placeholder="Insert your phone number" id="phone"
+                type="number" required>
             <br>
-            <label for="text">Messaggio: </label><textarea name="text"></textarea>
+            <label for="text">Message: </label><textarea required placeholder="Enter here your message..."
+                name="text"></textarea>
             <br>
-            <button type="submit">Invia</button>
+            <button type="submit" id="submit">Send</button>
+            <input type="reset" id="resetButton" name="resetButton" value="Field reset" />
+            <span class="error"></span>
         </form>
 
 
