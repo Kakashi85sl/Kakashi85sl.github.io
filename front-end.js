@@ -18,6 +18,30 @@ const form = document.querySelector("#Form")
 
 send.addEventListener("click", () => {
     event.preventDefault()
+
+// Rileva la lingua attuale in base al nome del file
+const currentPage = window.location.pathname;
+const isEnglish = !currentPage.includes("index_it.html"); // Se non è italiano, è inglese
+
+// Control if the field is empty
+
+if (fill.value === "") {
+    // Show error message 
+    errorMessage.textContent = isEnglish
+        ? "Please fill all the required fields"
+        : "Per favore compila tutti i campi richiesti";
+    return;
+}
+
+// Show success message
+errorMessage.textContent = isEnglish
+    ? "-- Your message has been sent! --"
+    : "-- Il tuo messaggio è stato inviato! --";
+
+
+
+
+
     if (fill.value === "") {
         errorMessage.textContent = "Please fill all the required fields"
         return
@@ -35,7 +59,7 @@ const currentPage = window.location.pathname;
 const isEnglish = currentPage.includes("index.html"); 
 
 // Set text en or it Imposta il testo del pulsante in base alla lingua attuale
-langSwitch.textContent = isEnglish ? "ENG" : "ITA";
+langSwitch.textContent = isEnglish ? "ITA" : "ENG";
 
 
 langSwitch.addEventListener("click", () => {
@@ -47,3 +71,11 @@ langSwitch.addEventListener("click", () => {
         window.location.href = "index.html";
     }
 });
+
+
+// Age
+const age = document.querySelector(".age")
+const birth = 1985
+const currentAge = new Date().getFullYear() - birth
+
+document.onload = age.textContent = currentAge
